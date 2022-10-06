@@ -6,7 +6,6 @@ const User = require('../models/userModel')
 // Get goals 
 // GET /api/goals
 // Private 
-
 const { Console } = require("console")
 
 const getGoals = asyncHandler( async (req, res) => {

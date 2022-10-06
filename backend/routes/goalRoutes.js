@@ -14,4 +14,4 @@ router.put('/:id', protect, updateGoal);
 
 router.delete('/:id', protect, deleteGoal);
 
-module.exports = router 
+module.exports = router  
