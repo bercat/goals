@@ -59,7 +59,7 @@ function Login() {
   return <>
     <section className='heading'>
         <h1>
-          <FaSignInAlt />Logg inn
+          <FaSignInAlt/> Logg inn
         </h1>
         <p>Logg inn og lag nye mål</p>
       </section>
