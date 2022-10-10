@@ -33,4 +33,4 @@ const goalService = {
     getGoals,
 }
 
-export default goalService
+export default goalService 
