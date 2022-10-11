@@ -6,7 +6,7 @@ function GoalForm() {
     const [text, setText] = useState('')
 
     const dispatch = useDispatch()
-
+    
     const onSubmit = (e) => {
         e.preventDefault()
         
