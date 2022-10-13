@@ -28,13 +28,11 @@ export const createGoal = createAsyncThunk('goals/create',
 )
 
 //Get user goals
-// export const getGoals = createAsyncThunk(
-//     'goals/getAll',
-//     async (_, thunkAPI) => {
-//       try {
-//         const token = thunkAPI.getState().auth.user.token
-//         return await goalService.getGoals(token)
-//       } catch (error) {
+export const getGoals = createAsyncThunk('goals/getAll', async (_, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().auth.user.token
+        return await goalService.getGoals(token)
+      } catch (error) {
 //         const message =
 //           (error.response &&
 //             error.response.data &&
@@ -42,9 +40,9 @@ export const createGoal = createAsyncThunk('goals/create',
 //             error.message ||
 //             error.toString()
 //         return thunkAPI.rejectWithValue(message)
-//       }
-//     }
-// )
+      }
+    }
+)
 
 
 
