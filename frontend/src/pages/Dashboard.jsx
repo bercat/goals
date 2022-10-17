@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import GoalForm from '../components/GoalForm'
-// import GoalItem from '../components/GoalItem'
+import GoalItem from '../components/GoalItem'
 import Spinner from '../components/Spinner'
-import { getGoals, reset } from '../features/goals/goalSlice'
+import { getGoals } from '../features/goals/goalSlice'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -12,8 +12,7 @@ function Dashboard() {
 
   const { user } = useSelector( (state) => state.auth )
   const { goals, isLoading, isError, message } = useSelector(
-    (state) => state.goals
-  )
+    (state) => state.goals)
 
   useEffect(() => {
     
@@ -22,9 +21,8 @@ function Dashboard() {
     // }
     
     if (isError) {
-      // console.log(message)
-      Object.keys(isError || {})
-      
+      console.log(message)
+      //Object.keys(isError || {})
     }
 
     if (!user) {
@@ -33,9 +31,7 @@ function Dashboard() {
 
     dispatch(getGoals())
 
-    // return () => {
-    //   dispatch(reset())
-    // }
+   
   }, [user, navigate, isError, message, dispatch])
 
 
@@ -51,6 +47,18 @@ function Dashboard() {
     </section>
 
     <GoalForm />   
+
+    <section className='content'>
+        {goals.length > 0 ? (
+          <div className='goals'>
+            {goals.map((goal) => (
+              <GoalItem key={goal._id} goal={goal} />
+            ))}
+          </div>
+        ) : (
+          <h3>Du har ikke satt opp noen mål</h3>
+        )}
+      </section>
   </>
   )
 }
